@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="d-flex justify-content-between mt-5">
+    <div>
+      <button class="btn btn-primary" [routerLink]="['/dashboard']">
+        <i class="bi bi-arrow-left"></i> Go back
+      </button>
+    </div>
+    <div>
+      <h2>Contact Information</h2>
+      <div>
+        <p><strong>NAME: </strong>{{ contact.name }}</p>
+      </div>
+      <div>
+        <p><strong>EMAIL: </strong>{{ contact.email }}</p>
+      </div>
+      <div>
+        <p><strong>CONTACT NUMBER: </strong>{{ contact.contactNumber }}</p>
+      </div>
+    </div>
+    <div></div>
+  </div>
+</div>

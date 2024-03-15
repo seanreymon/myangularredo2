@@ -1,0 +1,16 @@
+{
+  "contacts": [
+    {
+      "id": "27d8",
+      "name": "test",
+      "email": "test@email.com",
+      "contactNumber": "09213213122"
+    },
+    {
+      "id": "a3cf",
+      "name": "sean",
+      "email": "sample@test.com",
+      "contactNumber": "09751234567"
+    }
+  ]
+}

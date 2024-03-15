@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="fw-bold mt-4">Contacts Information</h1>
+  <app-edit
+    (createContactEvent)="addContact($event)"
+    (editContactEvent)="updateContact($event)"
+  ></app-edit>
+  <app-table
+    [contacts]="contacts"
+    (onContactUpdate)="deleteContact($event)"
+  ></app-table>
+</div>

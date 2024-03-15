@@ -1,0 +1,104 @@
+<div class="col-12 mb-3">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="col-6 form-group">
+      <label for="name" class="form-label"><strong>Name: </strong></label>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        name="name"
+        formControlName="name"
+        aria-label="name"
+        placeholder="Enter name"
+        autocomplete="off"
+      />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('name')?.invalid &&
+          (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('name')?.hasError('required')">
+          Name is required.</span
+        >
+        <span *ngIf="contactForm.get('name')?.hasError('minlength')">
+          Name should be at least 2 characters.</span
+        >
+      </span>
+    </div>
+    <div class="col-6 form-group">
+      <label for="email" class="form-label mt-2"
+        ><strong>Email: </strong></label
+      >
+      <input
+        class="form-control"
+        type="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        aria-label="email"
+        placeholder="Enter Email Address"
+        autocomplete="off"
+      />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('email')?.invalid &&
+          (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('email')?.hasError('required')">
+          Email is required.</span
+        >
+        <span *ngIf="contactForm.get('email')?.hasError('email')">
+          Email is invalid.</span
+        >
+      </span>
+    </div>
+    <div class="col-6 form-group">
+      <label for="contactNumber" class="form-label mt-2"
+        ><strong>Contact Number: </strong></label
+      >
+      <input
+        class="form-control"
+        type="text"
+        id="contactNumber"
+        name="contactNumber"
+        formControlName="contactNumber"
+        aria-label="contact number"
+        placeholder="Enter contact number"
+        autocomplete="off"
+      />
+      <span
+        class="help-block form-text"
+        *ngIf="
+          contactForm.get('contactNumber')?.invalid &&
+          (contactForm.get('contactNumber')?.touched ||
+            contactForm.get('contactNumber')?.dirty)
+        "
+      >
+        <span *ngIf="contactForm.get('contactNumber')?.hasError('required')">
+          Contact number is required.</span
+        >
+        <span *ngIf="contactForm.get('contactNumber')?.hasError('pattern')">
+          Contact number should contain 11 digits only.</span
+        >
+      </span>
+    </div>
+    <div class="col-6 d-flex justify-content-end align-items-center mb-2">
+      <ng-container *ngIf="isEditMode">
+        <button class="btn btn-primary mt-3" type="button" (click)="onCancel()">
+          Cancel
+        </button>
+      </ng-container>
+      <button
+        class="btn btn-success ms-2 mt-3"
+        type="submit"
+        [disabled]="!contactForm.valid"
+      >
+        {{ isEditMode ? "Update" : "Create" }}
+      </button>
+    </div>
+  </form>
+</div>
